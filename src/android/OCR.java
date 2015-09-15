@@ -19,6 +19,7 @@ public class OCR extends CordovaPlugin {
                 String resp = "Hi there";
                callbackContext.success(resp);
                 return true;
+        /*
         if (action.equals("sayHello")){
             Context context =  cordova.getActivity().getApplicationContext();
             Intent intent = new Intent(context,CaptureActivity.class);
@@ -34,6 +35,7 @@ public class OCR extends CordovaPlugin {
         }
 
         return false;
+        */
     }
 
 }
