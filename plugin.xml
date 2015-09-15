@@ -1,7 +1,7 @@
  <?xml version="1.0" encoding="UTF-8"?>
     <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
             id="cz.zeus_solutions.cordova.ocr" version="0.2.3">
-        <name>Device</name>
+        <name>OCR</name>
         <description>Cordova OCR Plugin</description>
         <license>Apache 2.0</license>
         <keywords>cordova,OCR</keywords>
@@ -17,7 +17,7 @@
             </feature>
           </config-file>
 	  <source-file src="src/android/OCR.java" target-dir="src/cz/zeus/cordova/ocr/android" />
-	  <resource-file src="libs/ocr.aar" target="libs/ocr.aar" />
+	  <resource-file src="src/android/ocr.aar" target="libs/ocr.aar" />
 
     	</platform>
     </plugin>
