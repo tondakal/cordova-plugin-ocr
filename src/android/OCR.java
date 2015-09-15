@@ -19,9 +19,9 @@ public class OCR extends CordovaPlugin {
 
         if (action.equals("sayHello")){
             Context context =  cordova.getActivity().getApplicationContext();
-            Intent intent = new Intent(context,CaptureActivity.class);
+            //Intent intent = new Intent(context,CaptureActivity.class);
 
-            cordova.startActivityForResult(this, intent,0);
+            //cordova.startActivityForResult(this, intent,0);
             try {
                 String responseText = "Hello world, " + args.getString(0);
                 callbackContext.success(responseText);
