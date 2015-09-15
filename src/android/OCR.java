@@ -16,8 +16,8 @@ public class OCR extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext)
             throws JSONException {
-                String responseText = "Hi there";
-               callbackContext.success(responseText);
+                String resp = "Hi there";
+               callbackContext.success(resp);
                 return true;
         if (action.equals("sayHello")){
             Context context =  cordova.getActivity().getApplicationContext();
