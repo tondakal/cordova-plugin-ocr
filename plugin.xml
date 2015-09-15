@@ -19,6 +19,6 @@
       <framework src="src/android/android.gradle" custom="true" type="gradleReference" />
     
 	  <source-file src="src/android/OCR.java" target-dir="src/cz/zeus/cordova/ocr/android" />
-	  <resource-file src="src/android/ocr.aar" target="libs" />
+	  <resource-file src="src/android/ocr.aar" target-dir="libs" />
     	</platform>
     </plugin>
