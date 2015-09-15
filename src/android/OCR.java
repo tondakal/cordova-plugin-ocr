@@ -1,4 +1,4 @@
-package cz.zeus_solutions.cordova;
+package cz.zeus_solutions.cordova.ocr;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
