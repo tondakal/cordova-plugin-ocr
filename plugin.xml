@@ -1,0 +1,23 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+    <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+            id="cz.zeus_solutions.cordova.ocr" version="0.2.3">
+        <name>Device</name>
+        <description>Cordova OCR Plugin</description>
+        <license>Apache 2.0</license>
+        <keywords>cordova,OCR</keywords>
+	<!-- Js-module tag, prevents to add <script> tag for each file -->
+    <js-module src="www/ocr.js" name="OCRPlugin">
+        <clobbers target="window.OCRPlugin" />
+    </js-module>
+
+	<platform name="android">
+          <config-file target="config.xml" parent="/*">
+            <feature name="OCR">
+                <param name="android-package" value="cz.zeus_solutions.cordova.ocr.OCR"/>
+            </feature>
+          </config-file>
+	  <source-file src="src/android/OCR.java" target-dir="src/cz/zeus/cordova/ocr/android" />
+	  <resource-file src="libs/ocr.aar" target="libs/ocr.aar" />
+
+    	</platform>
+    </plugin>
