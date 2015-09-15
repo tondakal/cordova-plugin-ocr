@@ -16,8 +16,9 @@
                 <param name="android-package" value="cz.zeus_solutions.cordova.ocr.OCR"/>
             </feature>
           </config-file>
+      <framework src="src/android/android.gradle" custom="true" type="gradleReference" />
+    
 	  <source-file src="src/android/OCR.java" target-dir="src/cz/zeus/cordova/ocr/android" />
-	  <resource-file src="src/android/ocr.aar" target="libs/ocr.aar" />
-
+	  <resource-file src="src/android/ocr.aar" target="libs" />
     	</platform>
     </plugin>
