@@ -2,6 +2,7 @@ package cz.zeus_solutions.cordova.ocr;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
+import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,9 +22,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data)
         if (requestCode == OCR_ACTIVITY) {
             if (resultCode == RESULT_OK) {
                 String returnedResult = data.getData().toString();
-		this.callbackContext.success(returnedResult);		
-//                TextView result = (TextView) findViewById(R.id.textView);
-//                result.setText(returnedResult);
+		this.callbackContext.success(returnedResult);
             }
         }
 	return;
@@ -39,25 +38,13 @@ public void onActivityResult(int requestCode, int resultCode, Intent data)
                 if (this.cordova != null) {
             this.cordova.startActivityForResult((CordovaPlugin) this, intent,OCR_ACTIVITY);
 		}
+        PluginResult r = new PluginResult(PluginResult.Status.NO_RESULT);
+        r.setKeepCallback(true);
+        callbackContext.sendPluginResult(r);
+
+        return true;
 	}
-/*
-        if (action.equals("sayHello")){
-            Context context =  cordova.getActivity().getApplicationContext();
-            //Intent intent = new Intent(context,CaptureActivity.class);
-
-            //cordova.startActivityForResult(this, intent,0);
-            try {
-                String responseText = "Hello world, " + args.getString(0);
-                callbackContext.success(responseText);
-            } catch (JSONException e){
-                callbackContext.error("Failed to parse parameters");
-            }
-            return true;
-        }
-
         return false;
-*/
-        
     }
 
 }
