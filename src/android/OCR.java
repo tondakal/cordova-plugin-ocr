@@ -11,7 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 
 public class OCR extends CordovaPlugin {
-
+	private static final int RESULT_OK=-1;
     private static final int OCR_ACTIVITY=200;
  protected CallbackContext callbackContext;
 
@@ -21,13 +21,12 @@ public void onActivityResult(int requestCode, int resultCode, Intent data)
         if (requestCode == OCR_ACTIVITY) {
             if (resultCode == RESULT_OK) {
                 String returnedResult = data.getData().toString();
-		this.callbackContext.success(returnedResult);
-		return true;
+		this.callbackContext.success(returnedResult);		
 //                TextView result = (TextView) findViewById(R.id.textView);
 //                result.setText(returnedResult);
             }
         }
-	return false;
+	return;
     }
 
     @Override
@@ -37,7 +36,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data)
 	if (action.equals("sayHello")){
 		Context context=this.cordova.getActivity().getApplicationContext();
 		Intent intent = new Intent(context, CaptureActivity.class);
-                context.startActivityForResult(intent,MainActivity.OCR_ACTIVITY);
+                context.startActivityForResult(intent,OCR_ACTIVITY);
 	}
 /*
         if (action.equals("sayHello")){
