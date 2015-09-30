@@ -6,7 +6,7 @@ repositories{
 }
 
 dependencies {
-   compile(name:'tess_two', ext:'aar')
+   compile(name:'tess-two', ext:'aar')
    compile(name:'android-ocr', ext:'aar')
 }
 
