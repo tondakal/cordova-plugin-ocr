@@ -36,7 +36,9 @@ public void onActivityResult(int requestCode, int resultCode, Intent data)
 	if (action.equals("sayHello")){
 		Context context=this.cordova.getActivity().getApplicationContext();
 		Intent intent = new Intent(context, CaptureActivity.class);
-                context.startActivityForResult(intent,OCR_ACTIVITY);
+                if (this.cordova != null) {
+            this.cordova.startActivityForResult((CordovaPlugin) this, intent,OCR_ACTIVITY);
+		}
 	}
 /*
         if (action.equals("sayHello")){
