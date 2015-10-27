@@ -32,7 +32,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data)
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext)
             throws JSONException {
 	this.callbackContext = callbackContext;
-	if (action.equals("sayHello")){
+	if (action.equals("reading")){
 		Context context=this.cordova.getActivity().getApplicationContext();
 		Intent intent = new Intent(context, CaptureActivity.class);
                 if (this.cordova != null) {
