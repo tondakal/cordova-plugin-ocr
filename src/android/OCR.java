@@ -36,6 +36,10 @@ public void onActivityResult(int requestCode, int resultCode, Intent data)
 		Context context=this.cordova.getActivity().getApplicationContext();
 		Intent intent = new Intent(context, CaptureActivity.class);
                 if (this.cordova != null) {
+		Boolean isSettingsEnabled=false;
+		String langCode = "odct";
+		i.putExtra("DEFAULT_TARGET_LANGUAGE_CODE", langCode);
+		i.putBoolean("isSettingsEnabled",false);
             this.cordova.startActivityForResult((CordovaPlugin) this, intent,OCR_ACTIVITY);
 		}
         PluginResult r = new PluginResult(PluginResult.Status.NO_RESULT);
