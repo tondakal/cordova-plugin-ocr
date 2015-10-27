@@ -10,11 +10,15 @@ import org.json.JSONObject;
 import edu.sfsu.cs.orange.ocr.CaptureActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
+
+import java.util.Iterator;
 
 public class OCR extends CordovaPlugin {
 	private static final int RESULT_OK=-1;
     private static final int OCR_ACTIVITY=200;
  protected CallbackContext callbackContext;
+    public static final String TAG="cz.zeus_solutions.ocr";
 
 public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
@@ -35,13 +39,27 @@ public void onActivityResult(int requestCode, int resultCode, Intent data)
 	if (action.equals("reading")){
 		Context context=this.cordova.getActivity().getApplicationContext();
 		Intent intent = new Intent(context, CaptureActivity.class);
+
                 if (this.cordova != null) {
-		Boolean isSettingsEnabled=false;
-		String langCode = "odct";
-		i.putExtra("DEFAULT_TARGET_LANGUAGE_CODE", langCode);
-		i.putBoolean("isSettingsEnabled",false);
-            this.cordova.startActivityForResult((CordovaPlugin) this, intent,OCR_ACTIVITY);
-		}
+                    JSONObject config = args.getJSONObject(0);
+                    Iterator<?> keys = config.keys();
+                    while( keys.hasNext() ) {
+                        String key = (String)keys.next();
+                        Object obj = config.get(key);
+
+                        if (obj instanceof Integer) {
+                            Integer val =(Integer)obj;
+                            intent.putExtra(key, val);
+                        }else if (obj instanceof Boolean) {
+                            Boolean val =(Boolean)obj;
+                            intent.putExtra(key, val);
+                        }else {
+                            String val =(String)obj;
+                            intent.putExtra(key, val);
+                        }
+                    }
+                    this.cordova.startActivityForResult((CordovaPlugin) this, intent, OCR_ACTIVITY);
+                }
         PluginResult r = new PluginResult(PluginResult.Status.NO_RESULT);
         r.setKeepCallback(true);
         callbackContext.sendPluginResult(r);
@@ -49,6 +67,8 @@ public void onActivityResult(int requestCode, int resultCode, Intent data)
         return true;
 	}
         return false;
+
     }
 
 }
+
