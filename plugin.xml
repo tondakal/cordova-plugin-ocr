@@ -21,6 +21,5 @@
 	  <source-file src="src/android/OCR.java" target-dir="src/cz/zeus_solutions/cordova/ocr" />
 	  <resource-file src="src/android/android-ocr.aar" target="libs/android-ocr.aar" />
 	  <resource-file src="src/android/tess-two.aar" target="libs/tess-two.aar" />
-
     	</platform>
     </plugin>
